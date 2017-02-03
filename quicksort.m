@@ -1,6 +1,7 @@
-function [] = quicksort(arr, low, high)
-%Quick sort algorithm = will sort an array of decoy images histograms
-%by their chi-squared distance to the forged image histogram
+function [] = quicksort(arr, low, high, n)
+%Quick sort algorithm = will sort a hashmap of decoy images histograms
+%by their chi-squared distance (value) to the forged image histogram
+%return a sorted array of keys (filenames) of size n
 %credit to - http://www.programcreek.com/2012/11/quicksort-array-in-java/
 if dir == null || isempty(arr)
     return;
