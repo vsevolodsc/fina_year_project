@@ -18,4 +18,4 @@ for i=1:dir_size
 end
 length(str)
 length(distances)
-map = containers.Map(str, distances);
+map = containers.Map(distances, str);
