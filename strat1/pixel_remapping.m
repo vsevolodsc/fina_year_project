@@ -4,4 +4,5 @@ function out = pixel_remapping(I, I2)
 forge = imread(I);
 decoy = imread(I2);
 
-out
+%imhistmatch(A, ref), where A is forged and ref is a decoy
+out = imhistmatch(forge, decoy);

@@ -1,4 +1,4 @@
-function [map] = hashmap(dir, forge)
+function [map] = hashmap_(dir, forge)
 % hash map generation where key -> filename
 % value -> distance to forge
 n = {dir.name};
@@ -16,6 +16,4 @@ for i=1:dir_size
    distance = chi_squared(imhist(forge_img), imhist(decoy_img));
    distances(i) = distance;
 end
-length(str)
-length(distances)
 map = containers.Map(distances, str);
