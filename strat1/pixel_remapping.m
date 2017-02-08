@@ -5,4 +5,4 @@ forge = imread(I);
 decoy = imread(I2);
 
 %imhistmatch(A, ref), where A is forged and ref is a decoy
-out = imhistmatch(forge, decoy);
+out = imhistmatch(forge, decoy, 256);
