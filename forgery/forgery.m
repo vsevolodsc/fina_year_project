@@ -4,7 +4,7 @@ function [] = forgery(A)
     %1) Gamma correction - range (random from [0.5;0.8], [1.2;2])
     %2) Histogram stretching
     len = length(A);
-    gamma_set = [0.5,0.6,0.7,0.8,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0];
+    gamma_set = [0.5,0.6,0.7,0.8,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0]; %[1:500 600:1000];
     for i=3:len
         img_path = strcat('D:/uni-16-17/fyp/images/original/', A(i).name);
         img = imread(img_path);
