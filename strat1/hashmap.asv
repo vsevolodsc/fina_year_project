@@ -16,8 +16,7 @@ distances = zeros(1,dir_size,'uint32');
 str = cellstr(names);
 
 for i=1:dir_size
-    ct = strcat('D:/uni-16-17/fyp/images/mirflickr/', str{i});
-   decoy_img = imread(ct);
+   decoy_img = imread(str{i});
    distance = chi_squared(imhist(forge), imhist(rgb2gray(decoy_img)));
    distances(i) = distance;
 end
