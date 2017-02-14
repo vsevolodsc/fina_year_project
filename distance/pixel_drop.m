@@ -1,13 +1,12 @@
-function [pixel_min, pixel_max, drop] = pixel_drop(I)
-H = imhist(I);
-minim = min(H);
-maxim = max(H);
-drop = maxim - minim;
+function drop = pixel_drop(I1, I2)
+h1 = imhist(I1);
+h2 = imhist(I2);
+drop = 0;
 for i=1:256
-    if H(i) == minim
-        pixel_min = i;
-    end
-    if H(i) == maxim
-        pixel_max = i;
+    for j=1:256
+        temp = h1(i)-h2(j);
+        if temp > drop
+           drop = temp; 
+        end
     end
 end
