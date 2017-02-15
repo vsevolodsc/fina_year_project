@@ -4,5 +4,4 @@ function out = pixel_remapping(I, I2)
 forge = imread(I);
 decoy = imread(I2);
 
-%imhistmatch(A, ref), where A is forged and ref is a decoy
-out = imhistmatch(forge, decoy, 256);
+%TODO: Remap pixels of Y to get Z by using a displacement matrix
