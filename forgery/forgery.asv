@@ -15,8 +15,8 @@ A = dir('D:/uni-16-17/fyp/images/original');
         gamma_corr_str = strcat('D:/uni-16-17/fyp/images/forgery/',name, '_gamma_',num2str(gamma),ext);
         stretch_str = strcat('D:/uni-16-17/fyp/images/forgery/', name, '_stretch', ext);
         gamma_img = gamma_correction(img, gamma);
-        gray_str = rgb2gray(img);
-        stretch_img = imadjust(gray_str, stretchlim(gray_str), []);
+       
+        stretch_img = imadjust(img, stretchlim(img), []);
         imwrite(gamma_img, gamma_corr_str, 'mode', 'lossless');
         imwrite(stretch_img, stretch_str, 'mode', 'lossless');
         gamma_corr_str = '';
