@@ -7,7 +7,8 @@ function out = perm_decoding(I, decoy)
 vecI = I(:);
 vecDecoy = decoy(:);
 [~, ind] = sort(vecI, 'ascend');
-sort_vecDec = sort(vecDecoy, 'ascend');
-out_vec(ind) = sort_vecDec;
-%out = vec2mat(out_vec, size(I,2));
-out = reshape(out_vec, size(I,2), size(I,1));
+%sort_vecDec = sort(vecDecoy, 'ascend');
+
+out_vec = vecD(ind);
+out = vec2mat(out_vec, size(I,2));
+r = reshape(out_vec, size(I,2), size(I,1));
