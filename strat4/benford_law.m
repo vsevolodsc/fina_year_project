@@ -1,4 +1,4 @@
-function [] = benford_law(I)
+function out = benford_law(I)
 
 out = zeros(size(I,1), size(I,2));
 for i=1:size(I,1)
@@ -6,9 +6,8 @@ for i=1:size(I,1)
         out(i,j) = get_ldigit(double(I(i,j)));
     end
 end
-
 x = unique(out);
-if size(x)>9
+if size(x,1)>9
     x = x(1:9);
 end
 lsd = [x,histc(out(:),x)];
