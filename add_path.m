@@ -12,5 +12,7 @@ addpath('D:/uni-16-17/fyp/scripts/strat2');
 addpath('D:/uni-16-17/fyp/scripts/strat3');
 addpath('D:/uni-16-17/fyp/scripts/strat4');
 addpath('D:/uni-16-17/fyp/scripts/decoy_selection');
+addpath('D:/uni-16-17/fyp/images/mirflickr');
+
 
 
