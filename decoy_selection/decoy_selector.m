@@ -1,4 +1,4 @@
-function out = hashmap(forge, N)
+function out = decoy_selector(forge, N)
 % hash map generation where key -> filename
 % value -> distance to forge
 % n -> number of decoys to be returned
