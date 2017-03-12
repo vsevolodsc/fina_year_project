@@ -4,6 +4,6 @@ function out = nclosest_decoys(hash, n)
 fnames = values(hash);
 out = cell(1,n);
 for i=1:n
-     out{i} = str2mat(fnames(i));
+     out{i} = str2mat(fnames(i)); 
 end
 

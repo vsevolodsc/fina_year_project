@@ -1,8 +1,8 @@
 function out = decoy_selector(forge, N)
-% hash map generation where key -> filename
-% value -> distance to forge
-% n -> number of decoys to be returned
-%forge -> attacked image
+% HashTree population where key is the distance and value is the filename 
+% of a decoy
+% K-NN algorithm implementation using a chi-squared distance
+
 d = dir('D:/uni-16-17/fyp/images/mirflickr');
 n = {d.name};
 names = {};
@@ -11,9 +11,8 @@ for j = 3:length(n)
 end
 
 dir_size = length(names);
-distances = zeros(1,dir_size,'uint32');
-% forge_img = imread(forge);
-str = cellstr(names);
+distances = zeros(1,dir_size,'uint32'); %key - distances vector
+str = cellstr(names); %value - file names
 
 for i=1:dir_size
     ct = strcat('D:/uni-16-17/fyp/images/mirflickr/', str{i});
@@ -22,5 +21,6 @@ for i=1:dir_size
    distances(i) = distance;
 end
 
-map = containers.Map(distances, str);
+map = containers.Map(distances, str);%Automatically populates a hashtree
+                                     %and sorts it by key
 out = nclosest_decoys(map, N);
