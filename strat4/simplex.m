@@ -1,21 +1,30 @@
-function x = simplex(forge, decoy, cons)
-%Counterforensics using simplex linear programming algorithm
-options = optimoptions('linprog','Algorithm','simplex');
-forge = double(forge);
-decoy = double(decoy);
-forge = forge(:);
-lb = ones(size(forge));
-ub(1:size(forge)) = 256;
-d = imhist(decoy);
+function out = simplex(J, decoy)
+options = optimset('LargeScale','on','Simplex','on');
+h = imhist(decoy);
+m = size(J,1)*size(J,2); %image size
+q = 256; %size of gray intensities
+z = J(:); %image vector
+v = 1:q; %255 shades of gray
+%Input
+f = kron(-v, double(z));
+%Eq constraint 1
+ones_c1 = ones(q,1); %Input for kron() 
+id_c1 = speye(m);
+c1 = kron(ones_c1',id_c1);
+rhs_c1 = ones(m,1);
+%Eq contraint 2
+ones_c2 = ones(1,m); 
+id_c2 = speye(q);
+c2 = kron(id_c2, ones_c2');
+rhs_c2 = h;
+%Concat constraints
+rhs = [rhs_c1; rhs_c2];
+constr = [c1;c2'];
+%Upper and lower bounds
 
-% cons = zeros(256, size(forge,1)* size(forge,2));
-% for i=1:256
-%     temp = filter_vec(forge,i);
-%     for j=1:size(forge,1)*size(forge,2)
-%         cons(i,j) = temp(j);
-%     end
-% end
+up = ones(m*256,1);
+low = zeros(m*256,1);
+%Simplex
 
-x = linprog(forge,[],[],cons,d',lb,ub,[],options);
-
-
+out = linprog(f,[],[],constr,rhs,low,up,[],options);
+%Kinda works - negative result
