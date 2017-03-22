@@ -1,5 +1,5 @@
-function out = testdct_permutations(I, decoy)
-%Permutating AC components
+function out = test2dct_permutations(I, decoy)
+% Permutating DC components
 if size(I,1) ~= size(decoy,1) || size(I,2) ~= size(decoy,2)
     decoy_res = imresize(decoy, [size(I,1) size(I,2)]);
 end
@@ -30,8 +30,6 @@ s_dec = sort(vec_FDDC, 'ascend');
 out_vec(idx) = s_dec;
 
 AC_OUT = reshape(out_vec,s1,s2); 
-
-% AC_OUT(1:8,1:8)
 
 ACDC_out = AC_OUT+FI_AC;
 
