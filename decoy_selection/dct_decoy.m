@@ -14,7 +14,6 @@ dir_size = length(names);
 distances = zeros(1,dir_size,'uint32'); %key - distances vector
 str = cellstr(names); %value - file names
 
-
 T_DCT = dctmtx(8);
 dct_trans = @(block)(T_DCT*block.data*T_DCT');
 F_DCT = blockproc(double(forge), [8 8], dct_trans); %forge in dct domain
@@ -29,8 +28,6 @@ for i=1:dir_size
    D = rgb2gray(decoy_img);
    if abs(size(D,1) - size(forge,1)) <=50 ...
            && abs(size(D,2) - size(forge,2)) <=50 
-%        abs(size(D,1) - size(forge,1))
-%        abs(size(D,2) - size(forge,2))
        D = imresize(D, [size(forge,1) size(forge,2)]);
        DEC_DCT = blockproc(double(D), [8 8], dct_trans);
        FDEC_DCT = blockproc(DEC_DCT, [8 8], filter_butac);

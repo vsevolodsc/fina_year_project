@@ -1,4 +1,4 @@
-function mssim = ssim(img1, img2, K, window, L)
+function [mssim, ssim_map] = ssim(img1, img2, K, window, L)
 
 %========================================================================
 %SSIM Index, Version 1.0
