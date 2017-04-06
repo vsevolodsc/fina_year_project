@@ -6,3 +6,6 @@ end
 X = double(I);
 output_double = 255*(X/255).^gamma;
 output = uint8(output_double);
+
+
+

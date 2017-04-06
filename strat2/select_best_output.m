@@ -11,3 +11,5 @@ for i=1:size(dec,2)
         out = pc;
     end
 end
+
+plot_perm_dec(I, out, old);

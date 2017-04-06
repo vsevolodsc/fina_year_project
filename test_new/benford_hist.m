@@ -12,5 +12,5 @@ vec_IDCT = FI_DC(:);
 for i=1:size(vec_IDCT,1)
    ben(i) = get_msd(vec_IDCT(i)); 
 end
-
-hist(ben)
+count = 1:9;
+hist(ben, count)

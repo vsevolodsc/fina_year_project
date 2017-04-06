@@ -29,4 +29,9 @@ low = zeros(m*256,1);
 out = glpk(f(:),constr,rhs,low,up);
 %Kinda works - negative result
 
+%Reshaping
+out = reshape(out, m, q);
+out = out*v';
+out = reshape(out, size(J,1), size(J,2));
+out = uint8(out);
 endfunction

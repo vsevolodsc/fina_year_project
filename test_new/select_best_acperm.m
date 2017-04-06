@@ -20,7 +20,7 @@ title('Attacking Benford Law forensic detector of JPEG compression');
 subplot(2,2,1); imshow(I);
 title('Attacked Image (Compressed)');
 subplot(2,2,2); imshow(out);
-title(['Result Image PSNR= ' num2str(psn)]);
+title(['Result Image PSNR= ' num2str(old)]);
 subplot(2,2,3); benford_hist(I);
 title('Attacked MSD histogram');
 subplot(2,2,4); benford_hist(out);
